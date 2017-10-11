@@ -1,0 +1,88 @@
+package com.leo.utils;
+
+import android.os.Environment;
+import android.os.StatFs;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+
+import java.io.File;
+
+/**
+ * Created by Leo on 2017/8/31
+ * Function:
+ */
+
+public class SDCardUtils {
+
+    private static final String TAG = "SDCardUtils";
+
+    private static boolean ishasCard;
+    private static String sDCardPath;
+
+    public SDCardUtils() {
+        ishasCard = isSDCardEnable();
+        sDCardPath = getPath();
+    }
+
+    public static boolean ishasCard() {
+        return ishasCard;
+    }
+
+    public static String getSDCardPath() {
+        return sDCardPath;
+    }
+
+    public static String getPath() {
+        return Environment.getExternalStorageDirectory().getPath();
+    }
+
+    /**
+     * 判断SD卡是否可用
+     *
+     * @return true : 可用<br>false : 不可用
+     */
+    public static boolean isSDCardEnable() {
+        return TextUtils.equals(Environment.MEDIA_MOUNTED, Environment.getExternalStorageState());
+    }
+
+    /**
+     * SD卡剩余空间大小
+     */
+    public static long getSDFreeSize() {
+        StatFs sf = new StatFs(sDCardPath);
+        //获取单个数据块的大小(Byte)
+        long blockSize = sf.getBlockSizeLong();
+        //空闲的数据块的数量
+        long freeBlocks = sf.getAvailableBlocksLong();
+        //返回SD卡空闲大小
+        return (freeBlocks * blockSize) / 1024 / 1024; //单位MB
+    }
+
+    private static boolean isHasDir(String path) {
+        File file = new File(path);
+        return file.exists();
+    }
+
+    private static boolean isFileExists(@NonNull final File file) {
+        return file.exists();
+    }
+
+    public static void makeDirs(String path) {
+        File file = new File(path);
+        if (!file.exists()) {
+            if (!file.mkdirs()) {
+                MyLog.w(TAG, "make dirs fail!");
+            }
+        }
+    }
+
+    // 删除文件
+    public static void deleteFile(String path) {
+        File file = new File(path);
+        if (file.exists()) {
+            if (!file.delete()) {
+                MyLog.w(TAG, "delete file fail!");
+            }
+        }
+    }
+}

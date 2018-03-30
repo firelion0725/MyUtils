@@ -39,3 +39,29 @@
 *  6.readIntFromSharedPreferences：读取注册表（Int）
 *  7.readLongFromSharedPreferences：读取注册表（Long）
 *  8.readFloatFromSharedPreferences：读取注册表（Float）
+## RegexUtils 正则表达式工具
+*  1.isTel：验证电话号码
+*  2.isIDCard18：验证身份证号码18位
+*  3.isEmail：验证邮箱
+*  4.isMatch：判断是否匹配正则
+## ScreenUtils 屏幕工具类
+*  1.getScreenWidth：获取屏幕的宽度（单位：px）
+*  2.getScreenHeight：获取屏幕的高度（单位：px）
+*  3.dp2px： dp转px
+*  4.px2dp： px转dp
+*  5.sp2px： sp转px
+*  6.px2sp： px转sp
+*  7.measureView: 测量视图尺寸
+*  8.getMeasuredWidth： 获取测量视图宽度
+*  9.getMeasuredHeight： 获取测量视图高度
+## SDCardUtils SD卡工具类
+*  1.ishasCard：是否有SD卡
+*  2.getSDCardPath： SD卡路径
+*  3.getSDFreeSize： SD卡剩余空间大小
+*  4.makeDirs：创建目录
+*  5.deleteFile：删除文件
+## StringUtils String工具类
+*  1.StringAppend： 字符串连接
+## TimeUtils 时间工具类
+*  1.millis2String：将时间戳转为时间字符串
+*  2.isSameDay：是否为同一天

@@ -54,8 +54,8 @@ public class SDCardUtils {
         long blockSize = sf.getBlockSizeLong();
         //空闲的数据块的数量
         long freeBlocks = sf.getAvailableBlocksLong();
-        //返回SD卡空闲大小
-        return (freeBlocks * blockSize) / 1024 / 1024; //单位MB
+        //返回SD卡空闲大小 单位MB
+        return (freeBlocks * blockSize) / 1024 / 1024;
     }
 
     private static boolean isHasDir(String path) {

@@ -9,7 +9,7 @@ import java.io.File;
 
 /**
  * Created by Leo on 2017/8/31
- * Function:
+ * Function: sd卡工具类
  */
 
 public class SDCardUtils {
@@ -24,15 +24,21 @@ public class SDCardUtils {
         sDCardPath = getPath();
     }
 
+    /**
+     * 是否有SD卡
+     */
     public static boolean ishasCard() {
         return ishasCard;
     }
 
+    /**
+     * SD卡路径
+     */
     public static String getSDCardPath() {
         return sDCardPath;
     }
 
-    public static String getPath() {
+    private static String getPath() {
         return Environment.getExternalStorageDirectory().getPath();
     }
 
@@ -41,7 +47,7 @@ public class SDCardUtils {
      *
      * @return true : 可用<br>false : 不可用
      */
-    public static boolean isSDCardEnable() {
+    private static boolean isSDCardEnable() {
         return TextUtils.equals(Environment.MEDIA_MOUNTED, Environment.getExternalStorageState());
     }
 
@@ -67,6 +73,9 @@ public class SDCardUtils {
         return file.exists();
     }
 
+    /**
+     * 创建目录
+     */
     public static void makeDirs(String path) {
         File file = new File(path);
         if (!file.exists()) {

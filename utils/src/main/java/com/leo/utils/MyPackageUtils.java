@@ -13,12 +13,16 @@ import android.os.Build;
 
 public class MyPackageUtils {
 
-    //获取系统版本号
+    /**
+     * 获取系统版本号
+     */
     public static int getSdkVersion() {
         return Build.VERSION.SDK_INT;
     }
 
-    //获取包名信息
+    /**
+     * 获取包名信息
+     */
     private static PackageInfo getPackageInfo(Context context) {
         try {
             PackageManager pm = context.getPackageManager();

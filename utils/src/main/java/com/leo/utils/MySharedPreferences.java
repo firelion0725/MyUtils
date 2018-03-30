@@ -27,7 +27,7 @@ public class MySharedPreferences {
      * @param value   值
      */
     public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull String value) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(key, value);
         editor.apply();
@@ -40,7 +40,7 @@ public class MySharedPreferences {
      * @param map     数据源（键值对）
      */
     public static void writeStringMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, String> map) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -58,7 +58,7 @@ public class MySharedPreferences {
      */
     public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull boolean value) {
 
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean(key, value);
         editor.apply();
@@ -71,7 +71,7 @@ public class MySharedPreferences {
      * @param map     数据源（键值对）
      */
     public static void writeBooleanMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, Boolean> map) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
         for (Map.Entry<String, Boolean> entry : map.entrySet()) {
@@ -88,7 +88,7 @@ public class MySharedPreferences {
      * @param value   值
      */
     public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull int value) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(key, value);
         editor.apply();
@@ -101,7 +101,7 @@ public class MySharedPreferences {
      * @param map     数据源（键值对）
      */
     public static void writeIntegerMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, Integer> map) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -118,7 +118,7 @@ public class MySharedPreferences {
      * @param value   值
      */
     public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull long value) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putLong(key, value);
         editor.apply();
@@ -131,7 +131,7 @@ public class MySharedPreferences {
      * @param map     数据源（键值对）
      */
     public static void writeLongMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, Long> map) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
         for (Map.Entry<String, Long> entry : map.entrySet()) {
@@ -148,7 +148,7 @@ public class MySharedPreferences {
      * @param value   值
      */
     public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull float value) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putFloat(key, value);
         editor.apply();
@@ -161,7 +161,7 @@ public class MySharedPreferences {
      * @param map     数据源（键值对）
      */
     public static void writeFloatMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, Float> map) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
         for (Map.Entry<String, Float> entry : map.entrySet()) {
@@ -171,46 +171,13 @@ public class MySharedPreferences {
     }
 
     /**
-     * 写入注册表
-     *
-     * @param context 依赖环境
-     * @param list     数据源
-     */
-    public static void writeStringListToSharedPreferences(@NonNull Context context, @NonNull List<String> list) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
-        SharedPreferences.Editor editor= pref.edit();
-        editor.putInt("Status_size",list.size()); /*sKey is an array*/
-
-        for(int i=0;i<list.size();i++) {
-            editor.remove("Status_" + i);
-            editor.putString("Status_" + i, list.get(i));
-        }
-        editor.apply();
-    }
-
-    /**
-     * 读取注册表
-     *
-     * @param context 依赖环境
-     */
-    public static List<String> readStringFromListSharedPreferences(@NonNull Context context) {
-        List<String> list = new ArrayList<>();
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
-        int size = pref.getInt("Status_size", 0);
-        for(int i=0;i<size;i++) {
-            list.add(pref.getString("Status_" + i, null));
-        }
-        return list;
-    }
-
-    /**
      * 读取注册表
      *
      * @param context 依赖环境
      * @param key     键
      */
     public static String readStringFromSharedPreferences(@NonNull Context context, @NonNull String key) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getString(key, "");
     }
 
@@ -222,7 +189,7 @@ public class MySharedPreferences {
      * @return 默认返回false
      */
     public static boolean readBooleanFromSharedPreferencesDefaultFalse(@NonNull Context context, @NonNull String key) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getBoolean(key, false);
     }
 
@@ -234,7 +201,7 @@ public class MySharedPreferences {
      * @return 默认返回true
      */
     public static boolean readBooleanFromSharedPreferencesDefaultTrue(@NonNull Context context, @NonNull String key) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getBoolean(key, true);
     }
 
@@ -245,7 +212,7 @@ public class MySharedPreferences {
      * @param key     键
      */
     public static int readIntFromSharedPreferences(@NonNull Context context, @NonNull String key) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getInt(key, 0);
     }
 
@@ -256,7 +223,7 @@ public class MySharedPreferences {
      * @param key     键
      */
     public static long readLongFromSharedPreferences(@NonNull Context context, @NonNull String key) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getLong(key, 0);
     }
 
@@ -267,7 +234,7 @@ public class MySharedPreferences {
      * @param key     键
      */
     public static float readFloatFromSharedPreferences(@NonNull Context context, @NonNull String key) {
-        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getFloat(key, 0);
     }
 }

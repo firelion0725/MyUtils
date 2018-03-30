@@ -20,7 +20,7 @@ public class IntentUtils {
      *
      * @param phoneNumber 电话号码
      */
-    public static Intent getDialIntent(final String phoneNumber) {
+    public static Intent getDialIntent(String phoneNumber) {
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
         return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     }
@@ -31,7 +31,7 @@ public class IntentUtils {
      * @param outUri 输出的uri
      * @return 拍照的意图
      */
-    public static Intent getCaptureIntent(final Uri outUri) {
+    public static Intent getCaptureIntent(Uri outUri) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, outUri);
         return intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -45,8 +45,10 @@ public class IntentUtils {
      *                  <br>参看https://developer.android.com/reference/android/support/v4/content/FileProvider.html
      * @return intent
      */
-    public static Intent getInstallAppIntent(Context context, final File file, final String authority) {
-        if (file == null) return null;
+    public static Intent getInstallAppIntent(Context context, File file, String authority) {
+        if (file == null) {
+            return null;
+        }
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

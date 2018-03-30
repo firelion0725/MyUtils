@@ -108,7 +108,7 @@ public class TimeUtils {
      * @param time 时间字符串
      * @return 毫秒时间戳
      */
-    public static long string2Millis(final String time) {
+    public static long string2Millis(String time) {
         return string2Millis(time, DEFAULT_FORMAT);
     }
 
@@ -120,7 +120,7 @@ public class TimeUtils {
      * @param format 时间格式
      * @return 毫秒时间戳
      */
-    public static long string2Millis(final String time, final DateFormat format) {
+    public static long string2Millis(String time, DateFormat format) {
         try {
             return format.parse(time).getTime();
         } catch (ParseException e) {

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.leo.utils.MyPackageUtils;
+import com.leo.utils.SDCardUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public native String stringFromJNI();
 
     private void test() {
-        Log.i("aaaaa", "" + MyPackageUtils.getSdkVersion());
+        Log.i("aaaaa", "666：" + SDCardUtils.getSDCardPath());
         Log.i("aaaaa", "" + MyPackageUtils.getVersionName(getApplicationContext()));
         Log.i("aaaaa", "" + MyPackageUtils.getVersionCode(getApplicationContext()));
         Log.i("aaaaa", "" + MyPackageUtils.getPackageName(getApplicationContext()));

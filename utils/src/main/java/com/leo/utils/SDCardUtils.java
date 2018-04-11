@@ -16,26 +16,18 @@ public class SDCardUtils {
 
     private static final String TAG = "SDCardUtils";
 
-    private static boolean ishasCard;
-    private static String sDCardPath;
-
-    public SDCardUtils() {
-        ishasCard = isSDCardEnable();
-        sDCardPath = getPath();
-    }
-
     /**
      * 是否有SD卡
      */
     public static boolean ishasCard() {
-        return ishasCard;
+        return isSDCardEnable();
     }
 
     /**
      * SD卡路径
      */
     public static String getSDCardPath() {
-        return sDCardPath;
+        return getPath();
     }
 
     private static String getPath() {
@@ -55,7 +47,7 @@ public class SDCardUtils {
      * SD卡剩余空间大小
      */
     public static long getSDFreeSize() {
-        StatFs sf = new StatFs(sDCardPath);
+        StatFs sf = new StatFs(getPath());
         //获取单个数据块的大小(Byte)
         long blockSize = sf.getBlockSizeLong();
         //空闲的数据块的数量

@@ -6,7 +6,9 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.leo.utils.MyPackageUtils;
+import com.leo.utils.RegexUtils;
 import com.leo.utils.SDCardUtils;
+import com.leo.utils.StringUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,9 +35,23 @@ public class MainActivity extends AppCompatActivity {
     public native String stringFromJNI();
 
     private void test() {
-        Log.i("aaaaa", "666：" + SDCardUtils.getSDCardPath());
-        Log.i("aaaaa", "" + MyPackageUtils.getVersionName(getApplicationContext()));
-        Log.i("aaaaa", "" + MyPackageUtils.getVersionCode(getApplicationContext()));
-        Log.i("aaaaa", "" + MyPackageUtils.getPackageName(getApplicationContext()));
+
+//        Log.i("aaaa", "result:" + StringUtils.isConSpeCharacters("的飞机哦大师傅感觉kuhgidahguid6546581654"));
+//        Log.i("aaaa", "result:" + StringUtils.isConSpeCharacters("skufhuishfui"));
+//        Log.i("aaaa", "result:" + StringUtils.isConSpeCharacters("165651651651658"));
+//        Log.i("aaaa", "result:" + StringUtils.isConSpeCharacters("dgdrag4665846584"));
+//        Log.i("aaaa", "result:" + StringUtils.isConSpeCharacters("    " +
+//                "" +
+//                "" +
+//                "+5454"));
+//        Log.i("aaaa", "result:" + StringUtils.isConSpeCharacters("^&^&*^&^%&^&*%6546848dfdgdd"));
+//        Log.i("aaaa", "result:" + StringUtils.isConSpeCharacters("\\\4364"));
+
+
+//        Log.i("aaaa","test:"+ RegexUtils.isMatch(".","[`~!@#$%^&*+=|{}':;',-\\[\\].<>/?~！@#￥%……&*——+|{}【】‘；：”“'。，、？]"));
+//        Log.i("aaaaa", "666：" + SDCardUtils.getSDCardPath());
+//        Log.i("aaaaa", "" + MyPackageUtils.getVersionName(getApplicationContext()));
+//        Log.i("aaaaa", "" + MyPackageUtils.getVersionCode(getApplicationContext()));
+//        Log.i("aaaaa", "" + MyPackageUtils.getPackageName(getApplicationContext()));
     }
 }

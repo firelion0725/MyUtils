@@ -61,7 +61,7 @@
 *  makeDirs：创建目录
 *  deleteFile：删除文件
 ## StringUtils String工具类
-*  StringAppend： 字符串连接
+*  stringAppend： 字符串连接
 *  isConSpeCharacters 判断是否为汉字数字英文大小写
 ## TimeUtils 时间工具类
 *  millis2String：将时间戳转为时间字符串

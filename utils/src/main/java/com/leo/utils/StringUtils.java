@@ -12,7 +12,7 @@ public class StringUtils {
      * @param strs 需要拼接字符
      * @return 拼接完成后字符
      */
-    public static String StringAppend(String... strs) {
+    public static String stringAppend(String... strs) {
         StringBuilder sb = new StringBuilder();
         for (String str : strs) {
             sb.append(str);
@@ -25,7 +25,7 @@ public class StringUtils {
      * @param objs 需要拼接字符
      * @return 拼接完成后字符
      */
-    public static String StringAppend(Object... objs) {
+    public static String stringAppend(Object... objs) {
         StringBuilder sb = new StringBuilder();
         for (Object str : objs) {
             sb.append(str);

@@ -3,7 +3,8 @@
 
 # API
 ##  ActivityUtils:
-  addFragmentToActivity activity中增加fragment
+  addFragmentToActivity: activity中增加fragment
+  goActivity: 跳转activity 带ActivityNotFoundException检测
 
 ##  DeviceUtils：设备相关工具类
 *  getAndroidID：获取设备AndroidID

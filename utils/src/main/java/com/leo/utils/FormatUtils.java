@@ -135,6 +135,16 @@ public class FormatUtils {
     }
 
     /**
+     * 将指定的字符串转换成制定小数点位数的double型
+     * 并指定舍入模式
+     */
+    public static double formatChange(double value, int newScale, int roundingMode) {
+        BigDecimal bd1 = new BigDecimal(value);
+        bd1 = bd1.setScale(newScale, roundingMode);
+        return bd1.doubleValue();
+    }
+
+    /**
      * double型的指定位数小数相加
      */
     public static double add(double parameter1, int scales1, double parameter2, int scales2) {

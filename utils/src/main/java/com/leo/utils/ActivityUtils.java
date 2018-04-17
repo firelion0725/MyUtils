@@ -17,6 +17,9 @@
 package com.leo.utils;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -42,5 +45,33 @@ public class ActivityUtils {
         transaction.add(frameId, fragment);
         transaction.commit();
     }
+
+    /**
+     * 启动新activity
+     *
+     * @param context 当前context
+     * @param intent  目标intent
+     */
+    public static void goActivity(Context context, Intent intent) {
+        PackageManager pm = context.getPackageManager();
+        if (pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
+            context.startActivity(intent);
+        }
+    }
+
+    /**
+     * 启动新activity 基本方式 不存在任何参数传递 flag启动等
+     *
+     * @param context 当前context
+     * @param cls     目标类名 一般为activity
+     */
+    public static void goActivity(Context context, Class<?> cls) {
+        PackageManager pm = context.getPackageManager();
+        Intent intent = new Intent(context, cls);
+        if (pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
+            context.startActivity(intent);
+        }
+    }
+
 
 }

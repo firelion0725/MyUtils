@@ -1,14 +1,14 @@
 package com.leo.test;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.leo.utils.MyPackageUtils;
-import com.leo.utils.RegexUtils;
 import com.leo.utils.SDCardUtils;
-import com.leo.utils.StringUtils;
+import com.leo.utils.ThreadUtils;
+
+import java.util.concurrent.ExecutorService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,5 +53,30 @@ public class MainActivity extends AppCompatActivity {
 //        Log.i("aaaaa", "" + MyPackageUtils.getVersionName(getApplicationContext()));
 //        Log.i("aaaaa", "" + MyPackageUtils.getVersionCode(getApplicationContext()));
 //        Log.i("aaaaa", "" + MyPackageUtils.getPackageName(getApplicationContext()));
+//        Log.i("sdcard", "path:" + SDCardUtils.INNER_EXTERNAL_STORAGE_DIRECTORY);
+        Log.i("sdcard", "path:" + SDCardUtils.getSecondaryStoragePath(this));
+        Log.i("sdcard", "size:" + SDCardUtils.getOuterSDFreeSize(this));
     }
+
+    private void testThreadPool() {
+        for (int i = 0; i < 1000; i++) {
+            ExecutorService executor = ThreadUtils.createDefaultThreadPool();
+            executor.execute(new InnerRunnable(i));
+        }
+    }
+
+    static class InnerRunnable implements Runnable {
+
+        int id;
+
+        InnerRunnable(int id) {
+            this.id = id;
+        }
+
+        @Override
+        public void run() {
+            Log.i("ExecutorService", "测试线程池" + id);
+        }
+    }
+
 }

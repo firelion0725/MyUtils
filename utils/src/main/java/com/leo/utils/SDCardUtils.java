@@ -1,11 +1,16 @@
 package com.leo.utils;
 
+import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
+import android.os.storage.StorageManager;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import java.io.File;
+import java.lang.reflect.Method;
+
+import static android.content.Context.STORAGE_SERVICE;
 
 /**
  * Created by Leo on 2017/8/31
@@ -15,23 +20,33 @@ import java.io.File;
 public class SDCardUtils {
 
     private static final String TAG = "SDCardUtils";
+    private static final String ENV_EXTERNAL_STORAGE = "EXTERNAL_STORAGE";
+
+    public static final String INNER_EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory().getPath();
+//    public static final String OUTER_EXTERNAL_STORAGE_DIRECTORY = System.getenv(ENV_EXTERNAL_STORAGE);
+
+    /**
+     * @param context
+     * @return
+     */
+    public static String getSecondaryStoragePath(Context context) {
+        try {
+            StorageManager sm = (StorageManager) context.getSystemService(STORAGE_SERVICE);
+            Method getVolumePathsMethod = StorageManager.class.getMethod("getVolumePaths", null);
+            String[] paths = (String[]) getVolumePathsMethod.invoke(sm, null);
+            // second element in paths[] is secondary storage path
+            return paths.length <= 1 ? null : paths[1];
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /**
      * 是否有SD卡
      */
     public static boolean ishasCard() {
         return isSDCardEnable();
-    }
-
-    /**
-     * SD卡路径
-     */
-    public static String getSDCardPath() {
-        return getPath();
-    }
-
-    private static String getPath() {
-        return Environment.getExternalStorageDirectory().getPath();
     }
 
     /**
@@ -44,10 +59,25 @@ public class SDCardUtils {
     }
 
     /**
+     * 内置SD卡剩余空间大小
+     */
+    public static long getInnerSDFreeSize() {
+        return getSDFreeSize(INNER_EXTERNAL_STORAGE_DIRECTORY);
+    }
+
+    /**
+     * 外置SD卡剩余空间大小
+     */
+    public static long getOuterSDFreeSize(Context context) {
+        String path = getSecondaryStoragePath(context);
+        return TextUtils.isEmpty(path) ? 0 : getSDFreeSize(path);
+    }
+
+    /**
      * SD卡剩余空间大小
      */
-    public static long getSDFreeSize() {
-        StatFs sf = new StatFs(getPath());
+    public static long getSDFreeSize(String path) {
+        StatFs sf = new StatFs(path);
         //获取单个数据块的大小(Byte)
         long blockSize = sf.getBlockSizeLong();
         //空闲的数据块的数量
@@ -56,13 +86,31 @@ public class SDCardUtils {
         return (freeBlocks * blockSize) / 1024 / 1024;
     }
 
-    private static boolean isHasDir(String path) {
+    /**
+     * 读/写检查
+     */
+    public static boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        return Environment.MEDIA_MOUNTED.equals(state);
+    }
+
+    public static boolean isHasDir(String path) {
         File file = new File(path);
         return file.exists();
     }
 
-    private static boolean isFileExists(@NonNull final File file) {
+    /**
+     * 判断文件是否存在
+     *
+     * @param file 文件
+     */
+    public static boolean isFileExists(@NonNull final File file) {
         return file.exists();
+    }
+
+    public static boolean isFileExists(@NonNull String path) {
+        File file = new File(path);
+        return isFileExists(file);
     }
 
     /**

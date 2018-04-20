@@ -2,6 +2,7 @@ package com.leo.utils;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ public class ToastUtils {
 
     private static Toast toast;
 
-    private static Handler handler = new Handler();
+    private static Handler handler = new Handler(Looper.getMainLooper());
 
     public static void showToastShort(Context context, String message) {
         showToast(context, message, Toast.LENGTH_SHORT, false);

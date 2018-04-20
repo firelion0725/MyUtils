@@ -3,10 +3,11 @@ package com.leo.test;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
-import com.leo.utils.SDCardUtils;
 import com.leo.utils.ThreadUtils;
+import com.leo.utils.ToastUtils;
 
 import java.util.concurrent.ExecutorService;
 
@@ -26,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
         test();
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showToastShortQueen(MainActivity.this.getApplicationContext(), "aaaaaa");
+            }
+        });
     }
 
     /**
@@ -54,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
 //        Log.i("aaaaa", "" + MyPackageUtils.getVersionCode(getApplicationContext()));
 //        Log.i("aaaaa", "" + MyPackageUtils.getPackageName(getApplicationContext()));
 //        Log.i("sdcard", "path:" + SDCardUtils.INNER_EXTERNAL_STORAGE_DIRECTORY);
-        Log.i("sdcard", "path:" + SDCardUtils.getSecondaryStoragePath(this));
-        Log.i("sdcard", "size:" + SDCardUtils.getOuterSDFreeSize(this));
+//        Log.i("sdcard", "path:" + SDCardUtils.getSecondaryStoragePath(this));
+//        Log.i("sdcard", "size:" + SDCardUtils.getOuterSDFreeSize(this));
     }
 
     private void testThreadPool() {

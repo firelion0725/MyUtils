@@ -42,6 +42,7 @@ public class ToastUtils {
         if (null == toast) {
             toast = Toast.makeText(context, message, duration);
         }
+
         Log.i(TAG, "show");
 
         handler.postDelayed(new Runnable() {

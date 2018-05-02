@@ -66,7 +66,7 @@ public class FileUtils {
      * @param charsetName The name of charset.
      * @return the string in file
      */
-    public static String readFile2String(File file, @NonNull String charsetName) {
+    public static String readFile2String(File file, String charsetName) {
         if (!SDCardUtils.isFileExists(file)) {
             return null;
         }

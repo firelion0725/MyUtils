@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
         String aaa = "f65sa4fg684g364d684fg65da4g6ad46da4f6s4f6sa68dfs";
         File file = new File(AndroidDefaultCacheUtils.getDefaultCachePath(this) + File.separator + "text.text");
 
-        Log.i("cache", "result:" + FileUtils.writeFileFromString(file, aaa, false));
-
+//        Log.i("cache", "result:" + FileUtils.writeFileFromString(file, aaa, false));
+        Log.i("cache", "result:" + FileUtils.readFile2String(file,  null));
 
     }
 

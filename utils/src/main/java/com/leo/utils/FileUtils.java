@@ -1,11 +1,15 @@
 package com.leo.utils;
 
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * @author leo, ZhangWei
@@ -40,5 +44,46 @@ public class FileUtils {
             }
         }
         return result;
+    }
+
+    /**
+     * Return the string in file.
+     *
+     * @param file        The file.
+     * @param charsetName The name of charset.
+     * @return the string in file
+     */
+    public static String readFile2String(File file, @NonNull String charsetName) {
+        if (!SDCardUtils.isFileExists(file)) {
+            return null;
+        }
+        BufferedReader reader = null;
+        try {
+            StringBuilder sb = new StringBuilder();
+            if (TextUtils.isEmpty(charsetName)) {
+                reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            } else {
+                reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charsetName));
+            }
+            String line;
+            if ((line = reader.readLine()) != null) {
+                sb.append(line);
+                while ((line = reader.readLine()) != null) {
+                    sb.append(System.getProperty("line.separator")).append(line);
+                }
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

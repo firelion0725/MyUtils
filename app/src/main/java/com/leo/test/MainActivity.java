@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.leo.utils.AndroidDefaultCacheUtils;
 import com.leo.utils.ThreadUtils;
 import com.leo.utils.ToastUtils;
 
@@ -63,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
 //        Log.i("sdcard", "path:" + SDCardUtils.INNER_EXTERNAL_STORAGE_DIRECTORY);
 //        Log.i("sdcard", "path:" + SDCardUtils.getSecondaryStoragePath(this));
 //        Log.i("sdcard", "size:" + SDCardUtils.getOuterSDFreeSize(this));
+
+
+        Log.i("cache", "path:" +  AndroidDefaultCacheUtils.getDefaultCachePath(this));
+
     }
 
     private void testThreadPool() {

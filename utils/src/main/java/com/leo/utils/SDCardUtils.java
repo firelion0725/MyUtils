@@ -104,7 +104,7 @@ public class SDCardUtils {
      *
      * @param file 文件
      */
-    public static boolean isFileExists(@NonNull final File file) {
+    public static boolean isFileExists(@NonNull File file) {
         return file.exists();
     }
 
@@ -118,6 +118,10 @@ public class SDCardUtils {
      */
     public static void makeDirs(String path) {
         File file = new File(path);
+        makeDirs(file);
+    }
+
+    public static void makeDirs(@NonNull File file) {
         if (!file.exists()) {
             if (!file.mkdirs()) {
                 MyLog.w(TAG, "make dirs fail!");

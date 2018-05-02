@@ -17,6 +17,19 @@ import java.io.InputStreamReader;
  * @function
  */
 public class FileUtils {
+
+    public static boolean createFile(File file) {
+        if (!file.exists()) {
+            try {
+                return file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * 将String写入文件
      *
@@ -25,7 +38,7 @@ public class FileUtils {
     public static boolean writeFileFromString(@NonNull File file, @NonNull String content, boolean append) {
         boolean result = false;
         if (!SDCardUtils.isFileExists(file)) {
-            return false;
+            createFile(file);
         }
         BufferedWriter bufferedWriter = null;
         try {

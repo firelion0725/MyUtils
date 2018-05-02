@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.leo.utils.AndroidDefaultCacheUtils;
+import com.leo.utils.FileUtils;
 import com.leo.utils.ThreadUtils;
 import com.leo.utils.ToastUtils;
 
+import java.io.File;
 import java.util.concurrent.ExecutorService;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,7 +68,13 @@ public class MainActivity extends AppCompatActivity {
 //        Log.i("sdcard", "size:" + SDCardUtils.getOuterSDFreeSize(this));
 
 
-        Log.i("cache", "path:" +  AndroidDefaultCacheUtils.getDefaultCachePath(this));
+        Log.i("cache", "path:" + AndroidDefaultCacheUtils.getDefaultCachePath(this));
+
+        String aaa = "f65sa4fg684g364d684fg65da4g6ad46da4f6s4f6sa68dfs";
+        File file = new File(AndroidDefaultCacheUtils.getDefaultCachePath(this) + File.separator + "text.text");
+
+        Log.i("cache", "result:" + FileUtils.writeFileFromString(file, aaa, false));
+
 
     }
 

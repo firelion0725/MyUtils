@@ -116,17 +116,13 @@ public class SDCardUtils {
     /**
      * 创建目录
      */
-    public static void makeDirs(String path) {
+    public static boolean makeDirs(String path) {
         File file = new File(path);
-        makeDirs(file);
+        return makeDirs(file);
     }
 
-    public static void makeDirs(@NonNull File file) {
-        if (!file.exists()) {
-            if (!file.mkdirs()) {
-                MyLog.w(TAG, "make dirs fail!");
-            }
-        }
+    public static boolean makeDirs(@NonNull File file) {
+        return !isFileExists(file) || file.mkdir();
     }
 
     // 删除文件

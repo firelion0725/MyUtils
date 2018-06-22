@@ -3,7 +3,6 @@ package com.leo.utils;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -39,11 +38,7 @@ public class ToastUtils {
         if (!isQueen) {
             cancelToast();
         }
-        if (null == toast) {
-            toast = Toast.makeText(context, message, duration);
-        }
-
-        Log.i(TAG, "show");
+        toast = Toast.makeText(context, message, duration);
 
         handler.postDelayed(new Runnable() {
             @Override

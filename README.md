@@ -1,3 +1,15 @@
+# project gradle
+`   repositories {
+      maven { url 'https://jitpack.io' }
+     }
+     `
+# app gradle
+`  dependencies {
+       implementation 'com.github.firelion0725:MyUtils:v1.0.0'
+    }
+`
+
+
 # MyUtils
 一个自用工具类
 

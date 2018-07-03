@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.leo.utils.AndroidDefaultCacheUtils;
 import com.leo.utils.FileUtils;
+import com.leo.utils.KeyboardUtils;
 import com.leo.utils.ThreadUtils;
 import com.leo.utils.ToastUtils;
 
@@ -28,14 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Example of a call to a native method
         test();
-        TextView tv = (TextView) findViewById(R.id.sample_text);
+        final EditText editText = findViewById(R.id.edit_text);
+        TextView tv = findViewById(R.id.sample_text);
+        tv.setOnClickListener(v ->
+                KeyboardUtils.toggleSoftInput(MainActivity.this)
+        );
+
         tv.setText(stringFromJNI());
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtils.showToastShortQueen(MainActivity.this.getApplicationContext(), "aaaaaa");
-            }
-        });
     }
 
     /**
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         File file = new File(AndroidDefaultCacheUtils.getDefaultCachePath(this) + File.separator + "text.text");
 
 //        Log.i("cache", "result:" + FileUtils.writeFileFromString(file, aaa, false));
-        Log.i("cache", "result:" + FileUtils.readFile2String(file,  null));
+        Log.i("cache", "result:" + FileUtils.readFile2String(file, null));
 
     }
 

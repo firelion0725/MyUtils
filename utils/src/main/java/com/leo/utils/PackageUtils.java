@@ -7,11 +7,12 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 
 /**
- * Created by Leo on 2017/8/29
- * Function: app包及系统相关工具类
+ * @author leo
+ * @date 2017/8/29
+ * @function app包及系统相关工具类
  */
 
-public class MyPackageUtils {
+public class PackageUtils {
 
     /**
      * 获取系统版本号

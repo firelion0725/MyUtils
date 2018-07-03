@@ -3,8 +3,9 @@ package com.leo.utils;
 import java.math.BigDecimal;
 
 /**
- * Created by leo on 2016/8/5
- * Function
+ * @author leo
+ * @date 2016/8/5
+ * @function 格式化
  */
 public class FormatUtils {
 

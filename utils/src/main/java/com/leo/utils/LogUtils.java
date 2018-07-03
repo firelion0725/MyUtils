@@ -7,12 +7,16 @@ import android.util.Log;
  * Function:Log日志类
  */
 
-public class MyLog {
+public class LogUtils {
 
     private static boolean showLog = true;
 
     public static void setShowLog(boolean showLog) {
-        MyLog.showLog = showLog;
+        LogUtils.showLog = showLog;
+    }
+
+    public static boolean isShowLog() {
+        return showLog;
     }
 
     public static void v(String tag, String msg) {

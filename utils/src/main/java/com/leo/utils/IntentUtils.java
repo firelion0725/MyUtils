@@ -10,8 +10,9 @@ import android.support.v4.content.FileProvider;
 import java.io.File;
 
 /**
- * Created by Leo on 2017/8/31
- * Function:
+ * @author leo
+ * @date 2017/8/31
+ * @function 意图的快捷
  */
 
 public class IntentUtils {

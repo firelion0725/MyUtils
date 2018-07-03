@@ -12,7 +12,7 @@ import java.util.Map;
  * 注册表读写类
  * Created by Leo on 2015/10/9
  */
-public class MySharedPreferences {
+public class SharedPreferencesUtils {
 
     /**
      * 注册表名称

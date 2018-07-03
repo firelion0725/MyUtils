@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 /**
  * @author leo, ZhangWei
  * @date 2018/5/2
- * @function
+ * @function 文件的快捷的创建
  */
 public class FileUtils {
 

@@ -47,8 +47,7 @@ public class ThreadUtils {
     private static class DefaultRejectedExecutionHandler implements RejectedExecutionHandler {
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-            Log.i("RejectedExecution", "runnable:" + r.toString());
-            Log.i("RejectedExecution", "executor:" + executor.getActiveCount());
+
         }
     }
 }

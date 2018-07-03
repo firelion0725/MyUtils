@@ -1,11 +1,11 @@
 package com.leo.utils;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by Leo on 2017/8/30
- * Function: 正则相关工具类
+ * @author leo
+ * @date 2017/8/30
+ * @function : 正则相关工具类
  */
 
 public class RegexUtils {

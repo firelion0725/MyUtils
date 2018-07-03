@@ -14,8 +14,9 @@ import java.net.NetworkInterface;
 import java.util.Enumeration;
 
 /**
- * Created by Leo on 2017/8/29
- * Function:设备相关工具类
+ * @author leo
+ * @date 2017/8/29
+ * @function 设备相关工具类
  */
 
 public class DeviceUtils {
@@ -33,7 +34,7 @@ public class DeviceUtils {
      *
      * @return IMEI码
      */
-    @SuppressLint("HardwareIds")
+    @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String getIMEI(Context context) {
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getDeviceId() : null;
@@ -45,7 +46,7 @@ public class DeviceUtils {
      *
      * @return IMSI码
      */
-    @SuppressLint("HardwareIds")
+    @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String getIMSI(Context context) {
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getSubscriberId() : null;
@@ -70,12 +71,17 @@ public class DeviceUtils {
     /**
      * 获取MAC地址 此方法在6.0以上版本废弃 只能获取虚假的mac地址
      */
+    @SuppressLint("HardwareIds")
     private static String getMacAddress(Context mContext) {
         String macStr;
-        WifiManager wifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
-        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        WifiManager wifiManager = (WifiManager) mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInfo = null;
+        if (wifiManager != null) {
+            wifiInfo = wifiManager.getConnectionInfo();
+        }
+
         if (wifiInfo != null && wifiInfo.getMacAddress() != null) {
-            macStr = wifiInfo.getMacAddress();// MAC地址
+            macStr = wifiInfo.getMacAddress();
         } else {
             macStr = "";
         }

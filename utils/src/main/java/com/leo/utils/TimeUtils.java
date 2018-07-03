@@ -8,8 +8,9 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by Leo on 2017/8/30
- * Function:
+ * @author leo
+ * @date 2017/8/30
+ * @function
  */
 
 public class TimeUtils {

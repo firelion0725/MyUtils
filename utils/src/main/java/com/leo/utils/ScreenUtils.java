@@ -5,8 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by Leo on 2017/8/29
- * Function: 屏幕分辨率工具类
+ * @author leo
+ * @date 2017/8/29
+ * @function : 屏幕分辨率工具类
  */
 
 public class ScreenUtils {

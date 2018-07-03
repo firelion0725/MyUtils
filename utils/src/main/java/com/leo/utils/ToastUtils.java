@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.widget.Toast;
 
 /**
- * @author leo, ZhangWei
+ * @author leo
  * @date 2018/4/20
  * @function Toast工具类
  */

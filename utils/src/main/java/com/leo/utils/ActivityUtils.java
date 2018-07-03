@@ -29,7 +29,9 @@ import static android.support.v4.util.Preconditions.checkNotNull;
 
 
 /**
- * This provides methods to help Activities load their UI.
+ * @author leo
+ * @date 2018/07/03
+ * @function This provides methods to help Activities load their UI.
  */
 public class ActivityUtils {
 

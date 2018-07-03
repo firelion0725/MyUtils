@@ -130,7 +130,7 @@ public class SDCardUtils {
         File file = new File(path);
         if (file.exists()) {
             if (!file.delete()) {
-                MyLog.w(TAG, "delete file fail!");
+                LogUtils.w(TAG, "delete file fail!");
             }
         }
     }

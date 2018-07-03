@@ -5,7 +5,7 @@
      `
 # app gradle
 `  dependencies {
-       implementation 'com.github.firelion0725:MyUtils:v1.0.0'
+       implementation 'com.github.firelion0725:MyUtils:v1.1.0'
     }
 `
 
@@ -79,3 +79,9 @@
 ## TimeUtils 时间工具类
 *  millis2String：将时间戳转为时间字符串
 *  isSameDay：是否为同一天
+## ThreadUtils 线程池工具类
+*  createThreadPool：自定义创建线程池
+*  doSomeBackgroundWork：标准Android线程处理runnable
+*  doSomeLightWeightBackgroundWork：轻量级处理runnable
+*  doSomeMainThreadWork：主线程处理runnable
+*  doSomeTaskAtHighPriority：带权重的轻量级处理runnable

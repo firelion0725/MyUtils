@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
         tv.setText(stringFromJNI());
+        testThreadPool();
     }
 
     /**
@@ -80,9 +81,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void testThreadPool() {
+//        for (int i = 0; i < 1000; i++) {
+//            ExecutorService executor = ThreadUtils.createDefaultThreadPool();
+//            executor.execute(new InnerRunnable(i));
+//        }
         for (int i = 0; i < 1000; i++) {
-            ExecutorService executor = ThreadUtils.createDefaultThreadPool();
-            executor.execute(new InnerRunnable(i));
+            ThreadUtils.doSomeLightWeightBackgroundWork(new InnerRunnable(i));
         }
     }
 

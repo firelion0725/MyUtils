@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/firelion0725/MyUtils.svg)](https://jitpack.io/#firelion0725/MyUtils)
 # project gradle
 `   repositories {
       maven { url 'https://jitpack.io' }

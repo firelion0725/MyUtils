@@ -7,3 +7,5 @@
 * 2.修正注释
 * 3.增加KeyboardUtils工具
 * 4.根据阿里规范及标准重新修订ThreadUtils线程池工具
+## Version 1.1.1
+* 1.增加ImageUtils处理图片方法

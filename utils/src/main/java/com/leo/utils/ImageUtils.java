@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.ThumbnailUtils;
 
 /**
  * @author leo, ZhangWei
@@ -18,6 +19,14 @@ public class ImageUtils {
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable, int width, int height) {
+        if (drawable instanceof BitmapDrawable) {
+            return ThumbnailUtils.extractThumbnail(((BitmapDrawable) drawable).getBitmap(), width, height);
+        } else {
+            return drawableToBitmapWithCanvas(drawable, width, height);
+        }
+    }
+
+    public static Bitmap drawableToBitmapWithCanvas(Drawable drawable, int width, int height) {
         Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
                 : Bitmap.Config.RGB_565;
         Bitmap bitmap = Bitmap.createBitmap(width, height, config);

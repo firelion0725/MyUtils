@@ -19,6 +19,12 @@ import static android.content.Context.STORAGE_SERVICE;
 
 public class SDCardUtils {
 
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private SDCardUtils() {
+    }
+
     private static final String TAG = "SDCardUtils";
     private static final String ENV_EXTERNAL_STORAGE = "EXTERNAL_STORAGE";
 

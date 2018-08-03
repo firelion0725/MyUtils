@@ -20,6 +20,13 @@ import java.util.Enumeration;
  */
 
 public class DeviceUtils {
+
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private DeviceUtils() {
+    }
+
     /**
      * 获取设备AndroidID
      */

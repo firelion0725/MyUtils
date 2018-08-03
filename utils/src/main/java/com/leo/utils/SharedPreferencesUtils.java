@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,6 +11,12 @@ import java.util.Map;
  * Created by Leo on 2015/10/9
  */
 public class SharedPreferencesUtils {
+
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private SharedPreferencesUtils() {
+    }
 
     /**
      * 注册表名称

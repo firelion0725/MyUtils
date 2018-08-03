@@ -11,6 +11,12 @@ import java.util.regex.Pattern;
 public class RegexUtils {
 
     /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private RegexUtils() {
+    }
+
+    /**
      * 正则：手机号（简单）
      */
     private static final String MOBILE_SIMPLE = "^1[345789]\\d{9}$";

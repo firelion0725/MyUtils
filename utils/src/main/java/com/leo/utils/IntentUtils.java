@@ -16,6 +16,13 @@ import java.io.File;
  */
 
 public class IntentUtils {
+
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private IntentUtils() {
+    }
+
     /**
      * 获取跳至拨号界面意图
      *

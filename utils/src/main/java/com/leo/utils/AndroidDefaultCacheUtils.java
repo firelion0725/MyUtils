@@ -11,6 +11,13 @@ import java.io.File;
  */
 public class AndroidDefaultCacheUtils {
 
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private AndroidDefaultCacheUtils() {
+    }
+
+
     public static File getDefaultCache(Context context) {
         return context.getCacheDir();
     }

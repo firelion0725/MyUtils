@@ -18,6 +18,12 @@ import java.io.InputStreamReader;
  */
 public class FileUtils {
 
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private FileUtils() {
+    }
+
     public static boolean createFile(File file) {
         if (!file.exists()) {
             try {

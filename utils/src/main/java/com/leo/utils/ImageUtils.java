@@ -14,6 +14,12 @@ import android.media.ThumbnailUtils;
  */
 public class ImageUtils {
 
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private ImageUtils() {
+    }
+
     public static Bitmap drawableToBitmap(Drawable drawable) {
         return drawableToBitmap(drawable, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
     }

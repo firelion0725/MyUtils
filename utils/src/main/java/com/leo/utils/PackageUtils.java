@@ -15,6 +15,12 @@ import android.os.Build;
 public class PackageUtils {
 
     /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private PackageUtils() {
+    }
+
+    /**
      * 获取系统版本号
      */
     public static int getSdkVersion() {

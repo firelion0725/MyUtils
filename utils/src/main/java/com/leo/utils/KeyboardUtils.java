@@ -13,6 +13,12 @@ import android.view.inputmethod.InputMethodManager;
 public class KeyboardUtils {
 
     /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private KeyboardUtils() {
+    }
+
+    /**
      * Show the soft input.
      *
      * @param view The view.

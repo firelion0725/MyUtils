@@ -12,16 +12,22 @@ import android.view.ViewGroup;
 
 public class ScreenUtils {
 
-    private static int screen_width = -1, screen_height = -1;
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private ScreenUtils() {
+    }
+
+    private static int screenWidth = -1, screenHeight = -1;
 
     /**
      * 获取屏幕的宽度（单位：px）
      */
     public static int getScreenWidth(Context context) {
-        if (screen_width < 0) {
-            screen_width = context.getResources().getDisplayMetrics().widthPixels;
+        if (screenWidth < 0) {
+            screenWidth = context.getResources().getDisplayMetrics().widthPixels;
         }
-        return screen_width;
+        return screenWidth;
     }
 
     /**
@@ -30,10 +36,10 @@ public class ScreenUtils {
      * @return 屏幕高
      */
     public static int getScreenHeight(Context context) {
-        if (screen_height < 0) {
-            screen_height = context.getResources().getDisplayMetrics().heightPixels;
+        if (screenHeight < 0) {
+            screenHeight = context.getResources().getDisplayMetrics().heightPixels;
         }
-        return screen_height;
+        return screenHeight;
     }
 
     /**

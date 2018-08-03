@@ -9,6 +9,12 @@ package com.leo.utils;
 public class StringUtils {
 
     /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private StringUtils() {
+    }
+
+    /**
      * 拼接字符串
      *
      * @param strs 需要拼接字符

@@ -41,6 +41,12 @@ public class TimeUtils {
      */
 
     /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private TimeUtils() {
+    }
+
+    /**
      * 默认时间格式
      */
     private static final DateFormat DEFAULT_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());

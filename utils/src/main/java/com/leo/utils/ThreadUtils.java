@@ -2,7 +2,6 @@ package com.leo.utils;
 
 import android.os.Process;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.leo.utils.thread.DefaultExecutorSupplier;
 import com.leo.utils.thread.DefaultPriorityExecutorSupplier;
@@ -22,6 +21,12 @@ import java.util.concurrent.TimeUnit;
  * @function
  */
 public class ThreadUtils {
+
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private ThreadUtils() {
+    }
 
     private static final int NUMBER_OF_CORES = Runtime.getRuntime().availableProcessors();
     private static final int KEEP_ALIVE_TIME = 1;

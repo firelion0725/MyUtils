@@ -12,6 +12,12 @@ import android.widget.Toast;
  */
 public class ToastUtils {
 
+    /**
+     * 通过私有构造隐藏默认公共构造方法禁止该类的公共构造
+     */
+    private ToastUtils() {
+    }
+
     private final static String TAG = "ToastUtils";
 
     private static Toast toast;

@@ -1,7 +1,7 @@
 package com.leo.utils;
 
 import android.os.Process;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.leo.utils.thread.DefaultExecutorSupplier;
 import com.leo.utils.thread.DefaultPriorityExecutorSupplier;

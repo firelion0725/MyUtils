@@ -1,6 +1,6 @@
 package com.leo.utils.thread;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;

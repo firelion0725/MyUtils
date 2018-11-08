@@ -1,9 +1,8 @@
 package com.leo.test;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -11,10 +10,8 @@ import com.leo.utils.AndroidDefaultCacheUtils;
 import com.leo.utils.FileUtils;
 import com.leo.utils.KeyboardUtils;
 import com.leo.utils.ThreadUtils;
-import com.leo.utils.ToastUtils;
 
 import java.io.File;
-import java.util.concurrent.ExecutorService;
 
 public class MainActivity extends AppCompatActivity {
 

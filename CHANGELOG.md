@@ -9,3 +9,6 @@
 * 4.根据阿里规范及标准重新修订ThreadUtils线程池工具
 ## Version 1.1.1
 * 1.增加ImageUtils处理图片方法
+## Version 1.2.0
+* 1.fix "android support" to "androidx"
+* 2.update build & compileSDK version to 28  

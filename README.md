@@ -25,6 +25,7 @@
 *  getIMSI：获取IMSI码 需添加权限READ_PHONE_STATE
 *  getModel：获取设备型号
 *  getMac：获取网卡地址
+*  getIpAddressString: 获取IP地址
   
 ##  FormatUtils 格式化工具类
 *  formatChange： 将指定的字符串转换成制定小数点位数的String字符串

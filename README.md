@@ -89,4 +89,4 @@
 *  doSomeTaskAtHighPriority：带权重的轻量级处理runnable
 ## ImageUtils 图片工具类
 * drawableToBitmap drawable转换为bitmap
-* bitmapToDrawable bitmap转换为drawable
+* bitmapToDrawable bitmap转换为drawable.

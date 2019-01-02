@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * @author leo
@@ -49,7 +50,7 @@ public class TimeUtils {
     /**
      * 默认时间格式
      */
-    private static final DateFormat DEFAULT_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+    private static final DateFormat DEFAULT_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
      * 英文简写（默认）如：2010-12-01
@@ -80,6 +81,8 @@ public class TimeUtils {
      * 精确到毫秒的完整中文时间
      */
     public static final String FORMAT_FULL_CN = "yyyy年MM月dd日  HH时mm分ss秒SSS毫秒";
+
+    public static final String BEIJING_TIMEZONE = "GMT+8";
 
     public static DateFormat getDateFormate(final String format) {
         return new SimpleDateFormat(format, Locale.getDefault());
@@ -160,4 +163,14 @@ public class TimeUtils {
         return t1.substring(14, 16).equals(t2.substring(14, 16));
     }
 
+    public static String getTimeWithTimeZone(String format, String timeZone) {
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+        dateFormat.setTimeZone(TimeZone.getTimeZone(timeZone));
+        return dateFormat.format(date);
+    }
+
+    public static String getTimeWithTimeZone() {
+        return getTimeWithTimeZone(FORMAT_LONG, BEIJING_TIMEZONE);
+    }
 }

@@ -1,15 +1,18 @@
 package com.leo.utils;
 
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author leo, ZhangWei
@@ -104,5 +107,37 @@ public class FileUtils {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * 文件转数组
+     *
+     * @param file 文件参数
+     * @return data byte[]
+     * @throws Exception
+     */
+    public static byte[] readFile2Byte(File file) throws Exception {
+        InputStream stream = new FileInputStream(file);
+        byte[] data = inputStream2ByteArray(stream);
+        stream.close();
+        return data;
+    }
+
+    /**
+     * 流转二进制数组
+     *
+     * @param in
+     * @return
+     * @throws IOException
+     */
+    public static byte[] inputStream2ByteArray(InputStream in) throws IOException {
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024 * 4];
+        int n = 0;
+        while ((n = in.read(buffer)) != -1) {
+            out.write(buffer, 0, n);
+        }
+        return out.toByteArray();
     }
 }

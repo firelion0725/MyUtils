@@ -90,3 +90,8 @@
 ## ImageUtils 图片工具类
 * drawableToBitmap drawable转换为bitmap
 * bitmapToDrawable bitmap转换为drawable
+## FileUtils 文件工具类
+* writeFileFromString 将String写入文件
+* readFile2String 从文件中读出String
+* readFile2Byte 文件读取byte数组
+* inputStream2ByteArray 读入流转成数组

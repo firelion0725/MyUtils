@@ -56,4 +56,9 @@ public class StringUtils {
         }
         return false;
     }
+
+    public static String hidePhone(String phoneNumber) {
+        return phoneNumber.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
+    }
+
 }

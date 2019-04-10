@@ -1,5 +1,8 @@
 package com.leo.utils;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * @author leo
  * @date 2017/9/28
@@ -57,8 +60,23 @@ public class StringUtils {
         return false;
     }
 
+    /**
+     * 手机号码隐藏中间四位
+     *
+     * @param phoneNumber 手机号码
+     * @return
+     */
     public static String hidePhone(String phoneNumber) {
         return phoneNumber.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
     }
 
+    public static String currencyFormat(double number, Locale locale) {
+        NumberFormat format = NumberFormat.getCurrencyInstance(locale);
+        return format.format(number);
+    }
+
+    public static String currencyFormat(long number, Locale locale) {
+        NumberFormat format = NumberFormat.getCurrencyInstance(locale);
+        return format.format(number);
+    }
 }

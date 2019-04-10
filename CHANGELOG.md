@@ -12,3 +12,13 @@
 ## Version 1.2.0
 * 1.fix "android support" to "androidx"
 * 2.update build & compileSDK version to 28  
+## Version 1.2.1
+* 1.增加ip地址获取方法
+## Version 1.2.2
+* 1.增加TimeUtils对时区的支持
+## Version 1.2.3
+* 1.增加FileUtils内方法 readFile2Byte ，inputStream2ByteArray
+## Version 1.2.4
+* 1.add phone number hide with "*"
+## Version 1.2.5
+* 1.add StringUtils method :currencyFormat

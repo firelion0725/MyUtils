@@ -79,6 +79,7 @@
 *  stringAppend： 字符串连接
 *  isConSpeCharacters 判断是否为汉字数字英文大小写
 *  hidePhone 隐藏手机号中间字段
+*  currencyFormat 货币格式化
 ## TimeUtils 时间工具类
 *  millis2String：将时间戳转为时间字符串
 *  isSameDay：是否为同一天

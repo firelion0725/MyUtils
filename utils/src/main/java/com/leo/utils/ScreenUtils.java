@@ -1,5 +1,6 @@
 package com.leo.utils;
 
+import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +24,9 @@ public class ScreenUtils {
     /**
      * 获取屏幕的宽度（单位：px）
      */
-    public static int getScreenWidth(Context context) {
+    public static int getScreenWidth(Application application) {
         if (screenWidth < 0) {
-            screenWidth = context.getResources().getDisplayMetrics().widthPixels;
+            screenWidth = application.getApplicationContext().getResources().getDisplayMetrics().widthPixels;
         }
         return screenWidth;
     }
@@ -35,9 +36,9 @@ public class ScreenUtils {
      *
      * @return 屏幕高
      */
-    public static int getScreenHeight(Context context) {
+    public static int getScreenHeight(Application application) {
         if (screenHeight < 0) {
-            screenHeight = context.getResources().getDisplayMetrics().heightPixels;
+            screenHeight = application.getApplicationContext().getResources().getDisplayMetrics().heightPixels;
         }
         return screenHeight;
     }

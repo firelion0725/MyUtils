@@ -1,7 +1,10 @@
 package com.leo.utils;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -47,8 +50,9 @@ public class ScreenUtils {
      * dp转px
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      */
-    public static int dp2px(Context context, float dpValue) {
-        float scale = context.getResources().getDisplayMetrics().density;
+    public static int dp2px(float dpValue) {
+        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
+        float scale = displayMetrics.density;
         return (int) (dpValue * scale + 0.5f);
     }
 
@@ -56,8 +60,9 @@ public class ScreenUtils {
      * px转dp
      * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
      */
-    public static int px2dp(Context context, float pxValue) {
-        float scale = context.getResources().getDisplayMetrics().density;
+    public static int px2dp(float pxValue) {
+        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
+        float scale = displayMetrics.density;
         return (int) (pxValue / scale + 0.5f);
     }
 
@@ -127,5 +132,24 @@ public class ScreenUtils {
      */
     public static int getMeasuredHeight(final View view) {
         return measureView(view)[1];
+    }
+
+
+    public static void adapterScreen(Activity activity, int targetDp, boolean isVertical) {
+        DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();
+        DisplayMetrics appDm = activity.getApplication().getResources().getDisplayMetrics();
+        DisplayMetrics activityDm = activity.getResources().getDisplayMetrics();
+
+        //通过目标DP 算出 逻辑密度
+        if (isVertical) {
+            activityDm.density = activityDm.heightPixels / (float) targetDp;
+        } else {
+            activityDm.density = activityDm.widthPixels / (float) targetDp;
+        }
+
+        //通过逻辑密度 算出比例密度
+        activityDm.scaledDensity = activityDm.density * (systemDm.scaledDensity / systemDm.density);
+        //算出 密度DPI 即修改没英寸的像素点数量
+        activityDm.densityDpi = (int) (DisplayMetrics.DENSITY_DEFAULT * activityDm.density);
     }
 }

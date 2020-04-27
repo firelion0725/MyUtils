@@ -22,3 +22,7 @@
 * 1.add phone number hide with "*"
 ## Version 1.2.5
 * 1.add StringUtils method :currencyFormat
+## Version 1.3.0
+* 1.add adapterScreen method 
+* 2.change "get display metrics method"
+* 3.update version of gradle

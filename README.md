@@ -69,6 +69,7 @@
 *  measureView: 测量视图尺寸
 *  getMeasuredWidth： 获取测量视图宽度
 *  getMeasuredHeight： 获取测量视图高度
+*  adapterScreen: 屏幕适配
 ## SDCardUtils SD卡工具类
 *  ishasCard：是否有SD卡
 *  getSDCardPath： SD卡路径

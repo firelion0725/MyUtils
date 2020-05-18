@@ -98,3 +98,5 @@
 * readFile2String 从文件中读出String
 * readFile2Byte 文件读取byte数组
 * inputStream2ByteArray 读入流转成数组
+## GpsUtils Gps工具类
+* isOpen 判断GPS是否打开

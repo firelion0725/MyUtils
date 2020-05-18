@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.leo.utils.AndroidDefaultCacheUtils;
 import com.leo.utils.FileUtils;
+import com.leo.utils.GpsUtils;
 import com.leo.utils.KeyboardUtils;
 import com.leo.utils.ThreadUtils;
 
@@ -26,15 +27,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Example of a call to a native method
-        test();
+//        test();
         final EditText editText = findViewById(R.id.edit_text);
         TextView tv = findViewById(R.id.sample_text);
         tv.setOnClickListener(v ->
-                KeyboardUtils.toggleSoftInput(MainActivity.this)
+//                KeyboardUtils.toggleSoftInput(MainActivity.this);
+                Log.i("leo", "gps :" + GpsUtils.isOpen(MainActivity.this))
         );
 
 //        tv.setText(stringFromJNI());
-        testThreadPool();
+//        testThreadPool();
     }
 
     /**

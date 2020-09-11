@@ -20,7 +20,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import androidx.annotation.NonNull;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -46,7 +46,7 @@ public class ActivityUtils {
      * performed by the {@code fragmentManager}.
      */
     @SuppressLint("RestrictedApi")
-    public static void addFragmentToActivity(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, int frameId) {
+    public static void addFragmentToActivity(FragmentManager fragmentManager, Fragment fragment, int frameId) {
         checkNotNull(fragmentManager);
         checkNotNull(fragment);
         FragmentTransaction transaction = fragmentManager.beginTransaction();

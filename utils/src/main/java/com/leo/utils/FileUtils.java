@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import androidx.annotation.NonNull;
-
 /**
  * @author leo, ZhangWei
  * @date 2018/5/2
@@ -44,7 +42,7 @@ public class FileUtils {
      *
      * @return {@code true}: success<br>{@code false}: fail
      */
-    public static boolean writeFileFromString(@NonNull File file, @NonNull String content, boolean append) {
+    public static boolean writeFileFromString(File file, String content, boolean append) {
         boolean result = false;
         if (!SDCardUtils.isFileExists(file)) {
             createFile(file);

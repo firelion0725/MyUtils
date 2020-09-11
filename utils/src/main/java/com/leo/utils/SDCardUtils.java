@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -110,11 +109,11 @@ public class SDCardUtils {
      *
      * @param file 文件
      */
-    public static boolean isFileExists(@NonNull File file) {
+    public static boolean isFileExists(File file) {
         return file.exists();
     }
 
-    public static boolean isFileExists(@NonNull String path) {
+    public static boolean isFileExists(String path) {
         File file = new File(path);
         return isFileExists(file);
     }
@@ -127,7 +126,7 @@ public class SDCardUtils {
         return makeDirs(file);
     }
 
-    public static boolean makeDirs(@NonNull File file) {
+    public static boolean makeDirs(File file) {
         return !isFileExists(file) || file.mkdir();
     }
 

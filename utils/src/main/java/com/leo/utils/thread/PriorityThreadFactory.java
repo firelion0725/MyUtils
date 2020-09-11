@@ -1,7 +1,6 @@
 package com.leo.utils.thread;
 
 import android.os.Process;
-import androidx.annotation.NonNull;
 
 import java.util.concurrent.ThreadFactory;
 
@@ -17,7 +16,7 @@ public class PriorityThreadFactory implements ThreadFactory {
     }
 
     @Override
-    public Thread newThread(@NonNull final Runnable runnable) {
+    public Thread newThread(final Runnable runnable) {
         Runnable wrapperRunnable = () -> {
             try {
                 Process.setThreadPriority(mThreadPriority);

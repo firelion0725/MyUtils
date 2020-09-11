@@ -1,7 +1,5 @@
 package com.leo.utils.thread;
 
-import androidx.annotation.NonNull;
-
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.PriorityBlockingQueue;
@@ -20,7 +18,6 @@ public class PriorityThreadPoolExecutor extends ThreadPoolExecutor {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, new PriorityBlockingQueue<>(), threadFactory);
     }
 
-    @NonNull
     @Override
     public Future<?> submit(Runnable task) {
         PriorityFutureTask futureTask = new PriorityFutureTask((PriorityRunnable) task);

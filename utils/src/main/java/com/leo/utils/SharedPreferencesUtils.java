@@ -2,7 +2,6 @@ package com.leo.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
 
 import java.util.Map;
 
@@ -30,7 +29,7 @@ public class SharedPreferencesUtils {
      * @param key     键
      * @param value   值
      */
-    public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull String value) {
+    public static void writeToSharedPreferences(Context context, String key, String value) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(key, value);
@@ -43,7 +42,7 @@ public class SharedPreferencesUtils {
      * @param context 依赖环境
      * @param map     数据源（键值对）
      */
-    public static void writeStringMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, String> map) {
+    public static void writeStringMapToSharedPreferences(Context context, Map<String, String> map) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
@@ -60,7 +59,7 @@ public class SharedPreferencesUtils {
      * @param key     键
      * @param value   值
      */
-    public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull boolean value) {
+    public static void writeToSharedPreferences(Context context, String key, boolean value) {
 
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
@@ -74,7 +73,7 @@ public class SharedPreferencesUtils {
      * @param context 依赖环境
      * @param map     数据源（键值对）
      */
-    public static void writeBooleanMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, Boolean> map) {
+    public static void writeBooleanMapToSharedPreferences(Context context, Map<String, Boolean> map) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
@@ -91,7 +90,7 @@ public class SharedPreferencesUtils {
      * @param key     键
      * @param value   值
      */
-    public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull int value) {
+    public static void writeToSharedPreferences(Context context, String key, int value) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(key, value);
@@ -104,7 +103,7 @@ public class SharedPreferencesUtils {
      * @param context 依赖环境
      * @param map     数据源（键值对）
      */
-    public static void writeIntegerMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, Integer> map) {
+    public static void writeIntegerMapToSharedPreferences(Context context, Map<String, Integer> map) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
@@ -121,7 +120,7 @@ public class SharedPreferencesUtils {
      * @param key     键
      * @param value   值
      */
-    public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull long value) {
+    public static void writeToSharedPreferences(Context context, String key, long value) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putLong(key, value);
@@ -134,7 +133,7 @@ public class SharedPreferencesUtils {
      * @param context 依赖环境
      * @param map     数据源（键值对）
      */
-    public static void writeLongMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, Long> map) {
+    public static void writeLongMapToSharedPreferences(Context context, Map<String, Long> map) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
@@ -151,7 +150,7 @@ public class SharedPreferencesUtils {
      * @param key     键
      * @param value   值
      */
-    public static void writeToSharedPreferences(@NonNull Context context, @NonNull String key, @NonNull float value) {
+    public static void writeToSharedPreferences(Context context, String key, float value) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putFloat(key, value);
@@ -164,7 +163,7 @@ public class SharedPreferencesUtils {
      * @param context 依赖环境
      * @param map     数据源（键值对）
      */
-    public static void writeFloatMapToSharedPreferences(@NonNull Context context, @NonNull Map<String, Float> map) {
+    public static void writeFloatMapToSharedPreferences(Context context, Map<String, Float> map) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
 
@@ -180,7 +179,7 @@ public class SharedPreferencesUtils {
      * @param context 依赖环境
      * @param key     键
      */
-    public static String readStringFromSharedPreferences(@NonNull Context context, @NonNull String key) {
+    public static String readStringFromSharedPreferences(Context context, String key) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getString(key, "");
     }
@@ -192,7 +191,7 @@ public class SharedPreferencesUtils {
      * @param key     键
      * @return 默认返回false
      */
-    public static boolean readBooleanFromSharedPreferencesDefaultFalse(@NonNull Context context, @NonNull String key) {
+    public static boolean readBooleanFromSharedPreferencesDefaultFalse(Context context, String key) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getBoolean(key, false);
     }
@@ -204,7 +203,7 @@ public class SharedPreferencesUtils {
      * @param key     键
      * @return 默认返回true
      */
-    public static boolean readBooleanFromSharedPreferencesDefaultTrue(@NonNull Context context, @NonNull String key) {
+    public static boolean readBooleanFromSharedPreferencesDefaultTrue(Context context, String key) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getBoolean(key, true);
     }
@@ -215,7 +214,7 @@ public class SharedPreferencesUtils {
      * @param context 依赖环境
      * @param key     键
      */
-    public static int readIntFromSharedPreferences(@NonNull Context context, @NonNull String key) {
+    public static int readIntFromSharedPreferences(Context context, String key) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getInt(key, 0);
     }
@@ -226,7 +225,7 @@ public class SharedPreferencesUtils {
      * @param context 依赖环境
      * @param key     键
      */
-    public static long readLongFromSharedPreferences(@NonNull Context context, @NonNull String key) {
+    public static long readLongFromSharedPreferences(Context context, String key) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getLong(key, 0);
     }
@@ -237,7 +236,7 @@ public class SharedPreferencesUtils {
      * @param context 依赖环境
      * @param key     键
      */
-    public static float readFloatFromSharedPreferences(@NonNull Context context, @NonNull String key) {
+    public static float readFloatFromSharedPreferences(Context context, String key) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getFloat(key, 0);
     }

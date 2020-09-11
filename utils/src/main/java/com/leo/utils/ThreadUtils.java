@@ -1,7 +1,6 @@
 package com.leo.utils;
 
 import android.os.Process;
-import androidx.annotation.NonNull;
 
 import com.leo.utils.thread.DefaultExecutorSupplier;
 import com.leo.utils.thread.DefaultPriorityExecutorSupplier;
@@ -62,7 +61,7 @@ public class ThreadUtils {
 
     private static class BackgroundThreadFactory implements ThreadFactory {
         @Override
-        public Thread newThread(@NonNull Runnable r) {
+        public Thread newThread(Runnable r) {
             return new Thread(r);
         }
     }

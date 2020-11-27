@@ -6,7 +6,7 @@
      `
 # app gradle
 `  dependencies {
-       implementation 'com.github.firelion0725:MyUtils:v1.2.5'
+       implementation 'com.github.firelion0725:MyUtils:v1.3.3'
     }
 `
 

@@ -100,3 +100,6 @@
 * inputStream2ByteArray 读入流转成数组
 ## GpsUtils Gps工具类
 * isOpen 判断GPS是否打开
+## UrlUtils Url工具类
+* appendParams 按默认模式进行键值对的拼接
+
